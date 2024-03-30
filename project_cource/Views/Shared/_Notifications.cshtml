@@ -1,0 +1,17 @@
+﻿<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+@if (TempData["sucs_data"] != null)
+{
+   <script type="text/javascript">
+        toastr.success('@TempData["sucs_data"]', 'Success')
+   </script>
+}
+
+@if (TempData["err_data"] != null)
+{
+
+    <script type="text/javascript">
+        toastr.error('@TempData["err_data"]', 'error')
+    </script>
+}

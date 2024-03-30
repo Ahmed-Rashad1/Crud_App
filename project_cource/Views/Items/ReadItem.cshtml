@@ -1,0 +1,44 @@
+﻿@model Item
+@{
+    ViewData["Title"] = "ReadItem";
+}
+
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Your Item</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" disabled class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" disabled class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="CategoryId"></label>
+            <select disabled class="form-control" asp-for="CategoryId" readonly asp-items="@ViewBag.CategoryList">
+            </select>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="CreatedDate"></label>
+            <input asp-for="CreatedDate" disabled class="form-control" />
+            <span asp-validation-for="CreatedDate" class="text-danger"></span>
+        </div>
+        <hr />
+        <a asp-action="Index" asp-controller="Items" class="btn btn-secondary" style="width:150px">
+            back to items
+        </a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
